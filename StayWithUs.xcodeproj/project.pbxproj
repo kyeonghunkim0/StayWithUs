@@ -22,6 +22,7 @@
 /* Begin PBXFileReference section */
 		4B4D76AE04CEC0E36A95176E /* Pods-StayWithUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StayWithUs.release.xcconfig"; path = "Target Support Files/Pods-StayWithUs/Pods-StayWithUs.release.xcconfig"; sourceTree = "<group>"; };
 		6C1EB3CC28ABBBB800D8C0E8 /* EF_Diary.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EF_Diary.ttf; sourceTree = "<group>"; };
+		6C776C8D28B520A60019068A /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		6C86987128A9095B00019D69 /* StayWithUs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StayWithUs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86987428A9095B00019D69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C86987628A9095B00019D69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,8 +53,8 @@
 		6C1EB3CA28ABBB6500D8C0E8 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6C776C8C28B5209A0019068A /* Icons */,
 				6CA4FE7D28B4F9D800B2F218 /* download.png */,
-				6CA4FE7A28B4F8E600B2F218 /* instagram.png */,
 				6C1EB3CB28ABBB7300D8C0E8 /* Fonts */,
 			);
 			path = Resource;
@@ -66,6 +67,15 @@
 				6C1EB3CC28ABBBB800D8C0E8 /* EF_Diary.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6C776C8C28B5209A0019068A /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				6C776C8D28B520A60019068A /* download.png */,
+				6CA4FE7A28B4F8E600B2F218 /* instagram.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		6C86986828A9095B00019D69 = {
