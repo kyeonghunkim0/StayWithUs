@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: 69d1ff3561b536a0d751710f8ba319022e2dd6ed
+PODS:
+  - BSImagePicker (3.3.1)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - BSImagePicker (~> 3.1)
+  - Toast-Swift (~> 5.0.1)
+
+SPEC REPOS:
+  trunk:
+    - BSImagePicker
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  BSImagePicker: 0fe04b574d4d6b81093785d2af6c26227efc8428
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: 9695b2677d14f027c8ffceecb55a3ad549cfff2c
 
 COCOAPODS: 1.11.3

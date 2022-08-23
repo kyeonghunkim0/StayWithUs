@@ -6,5 +6,7 @@ target 'StayWithUs' do
   use_frameworks!
 
   # Pods for StayWithUs
+  pod "BSImagePicker", "~> 3.1"
+  pod 'Toast-Swift', '~> 5.0.1'
 
 end
