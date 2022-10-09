@@ -1,7 +1,6 @@
 # StayWithUs
 
-- App Store
-https://apps.apple.com/us/app/%EC%9A%B0%EB%A6%AC%EB%81%BC%EB%A6%AC-%EC%8A%A4%ED%8B%B0%EC%BB%A4%EC%82%AC%EC%A7%84/id6443664105
+- App Store : https://apps.apple.com/us/app/%EC%9A%B0%EB%A6%AC%EB%81%BC%EB%A6%AC-%EC%8A%A4%ED%8B%B0%EC%BB%A4%EC%82%AC%EC%A7%84/id6443664105
 
 ![사진저장](https://user-images.githubusercontent.com/45312005/186290330-6f6d4986-cd0a-46b6-9755-95ece9fa35cc.jpeg)
 
