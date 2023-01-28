@@ -9,6 +9,7 @@ import UIKit
 import BSImagePicker
 import Photos
 import Toast_Swift
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -17,7 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var logoLabel: UILabel!
     @IBOutlet var imgViews: [UIImageView]!
     @IBOutlet weak var PhotoView: UIView!
+    @IBOutlet weak var downloadBtn: UIButton!
+    @IBOutlet weak var darkBtn: UIButton!
     
+    var cnt = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,8 @@ class ViewController: UIViewController {
         imagePicker.settings.theme.selectionStyle = .numbered
         imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
         imagePicker.settings.selection.unselectOnReachingMax = true
+        
+       
      
         
         
@@ -46,9 +52,17 @@ class ViewController: UIViewController {
         },cancel: {(asset) in print("Cancled with selections: \(asset)")
         }, finish: {(asset) in print("Finished with selections : \(asset)")
             for i in 0..<4{
+                
+                if asset.count < 4{
+                    self.view.makeToast("사진 4장을 선택해주세요.")
+                    return
+                }
+                
                 self.imgViews[i].image = self.AssetsToImage(assets: asset[i])
+                
 
             }
+           
         
         })
     }
@@ -60,7 +74,7 @@ class ViewController: UIViewController {
         let option = PHImageRequestOptions()
         var image = UIImage()
         option.isSynchronous = true
-        manger.requestImage(for: assets, targetSize: CGSize(width: assets.pixelWidth, height: assets.pixelHeight), contentMode: .aspectFill, options: option, resultHandler: {(result, info)-> Void in image = result!
+        manger.requestImage(for: assets, targetSize: CGSize(width: assets.pixelWidth, height: assets.pixelHeight), contentMode: .aspectFill, options: option, resultHandler: {(result, info) -> Void in image = result!
         })
         return image
     }
@@ -118,7 +132,31 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func darkBtn(_ sender: UIButton) {
+        
+        cnt += 1
+        
+        if(cnt%2 != 0){
+            PhotoView.backgroundColor = .white
+            logoLabel.textColor = .black
+            view.backgroundColor = .gray
+        
+        }
+        else{
+            PhotoView.backgroundColor = .black
+            logoLabel.textColor = .white
+            view.backgroundColor = .white
+        }
+        
+  
+    }
 }
+        
+        
+ 
+    
+    
+
 
 
 

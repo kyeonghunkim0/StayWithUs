@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C06E73128E96F8B006815AA /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C06E72F28E96F8B006815AA /* download.png */; };
+		6C06E73228E96F8B006815AA /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C06E73028E96F8B006815AA /* instagram.png */; };
+		6C06E73428E96FDC006815AA /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C06E73328E96FDC006815AA /* add.png */; };
 		6C1EB3CD28ABBBB800D8C0E8 /* EF_Diary.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C1EB3CC28ABBBB800D8C0E8 /* EF_Diary.ttf */; };
 		6C86987528A9095B00019D69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C86987428A9095B00019D69 /* AppDelegate.swift */; };
 		6C86987728A9095B00019D69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C86987628A9095B00019D69 /* SceneDelegate.swift */; };
@@ -14,15 +17,15 @@
 		6C86987C28A9095B00019D69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C86987A28A9095B00019D69 /* Main.storyboard */; };
 		6C86987E28A9095C00019D69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C86987D28A9095C00019D69 /* Assets.xcassets */; };
 		6C86988128A9095C00019D69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C86987F28A9095C00019D69 /* LaunchScreen.storyboard */; };
-		6CA4FE7928B4F8E400B2F218 /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CA4FE7828B4F8E400B2F218 /* instagram.png */; };
-		6CA4FE7E28B4F9D800B2F218 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CA4FE7D28B4F9D800B2F218 /* download.png */; };
 		E0AD10A3008D43A6ECAAE23E /* Pods_StayWithUs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C23AD04B6B678EFC417F77 /* Pods_StayWithUs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4B4D76AE04CEC0E36A95176E /* Pods-StayWithUs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StayWithUs.release.xcconfig"; path = "Target Support Files/Pods-StayWithUs/Pods-StayWithUs.release.xcconfig"; sourceTree = "<group>"; };
+		6C06E72F28E96F8B006815AA /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
+		6C06E73028E96F8B006815AA /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
+		6C06E73328E96FDC006815AA /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		6C1EB3CC28ABBBB800D8C0E8 /* EF_Diary.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EF_Diary.ttf; sourceTree = "<group>"; };
-		6C776C8D28B520A60019068A /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		6C86987128A9095B00019D69 /* StayWithUs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StayWithUs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86987428A9095B00019D69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C86987628A9095B00019D69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,9 +34,6 @@
 		6C86987D28A9095C00019D69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C86988028A9095C00019D69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C86988228A9095C00019D69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6CA4FE7828B4F8E400B2F218 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instagram.png; path = ../../../../../Downloads/instagram.png; sourceTree = "<group>"; };
-		6CA4FE7A28B4F8E600B2F218 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
-		6CA4FE7D28B4F9D800B2F218 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = download.png; path = ../../../../Downloads/download.png; sourceTree = "<group>"; };
 		C1C23AD04B6B678EFC417F77 /* Pods_StayWithUs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StayWithUs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5115B8C515B635D30CF4905 /* Pods-StayWithUs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StayWithUs.debug.xcconfig"; path = "Target Support Files/Pods-StayWithUs/Pods-StayWithUs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				6C776C8C28B5209A0019068A /* Icons */,
-				6CA4FE7D28B4F9D800B2F218 /* download.png */,
 				6C1EB3CB28ABBB7300D8C0E8 /* Fonts */,
 			);
 			path = Resource;
@@ -63,7 +62,6 @@
 		6C1EB3CB28ABBB7300D8C0E8 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				6CA4FE7828B4F8E400B2F218 /* instagram.png */,
 				6C1EB3CC28ABBBB800D8C0E8 /* EF_Diary.ttf */,
 			);
 			path = Fonts;
@@ -72,8 +70,9 @@
 		6C776C8C28B5209A0019068A /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				6C776C8D28B520A60019068A /* download.png */,
-				6CA4FE7A28B4F8E600B2F218 /* instagram.png */,
+				6C06E73328E96FDC006815AA /* add.png */,
+				6C06E72F28E96F8B006815AA /* download.png */,
+				6C06E73028E96F8B006815AA /* instagram.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -188,12 +187,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C06E73428E96FDC006815AA /* add.png in Resources */,
+				6C06E73228E96F8B006815AA /* instagram.png in Resources */,
 				6C86988128A9095C00019D69 /* LaunchScreen.storyboard in Resources */,
+				6C06E73128E96F8B006815AA /* download.png in Resources */,
 				6C86987E28A9095C00019D69 /* Assets.xcassets in Resources */,
 				6C86987C28A9095B00019D69 /* Main.storyboard in Resources */,
-				6CA4FE7928B4F8E400B2F218 /* instagram.png in Resources */,
 				6C1EB3CD28ABBBB800D8C0E8 /* EF_Diary.ttf in Resources */,
-				6CA4FE7E28B4F9D800B2F218 /* download.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,28 +394,39 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2N94PZ8R58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StayWithUs/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "우리끼리";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera permissions for taking photos and videos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To download a collection of selected photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To populate the picture in a four-cut photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.kimkhuna.StayWithUs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -425,28 +436,39 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2N94PZ8R58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StayWithUs/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "우리끼리";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera permissions for taking photos and videos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To download a collection of selected photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To populate the picture in a four-cut photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.kimkhuna.StayWithUs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
