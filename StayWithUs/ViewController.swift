@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var logoLabel: UILabel!
     @IBOutlet var imgViews: [UIImageView]!
-    @IBOutlet weak var PhotoView: UIView!
+//    @IBOutlet weak var PhotoView: UIView!
+    @IBOutlet weak var PhotoView: UIStackView!
     @IBOutlet weak var downloadBtn: UIButton!
     @IBOutlet weak var darkBtn: UIButton!
     
@@ -28,6 +29,11 @@ class ViewController: UIViewController {
         // 라벨 출력
         if logoLabel.adjustsFontSizeToFitWidth == false{
             logoLabel.adjustsFontSizeToFitWidth = true
+        }
+        
+        if(UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone && (UIScreen.main.bounds.size.height <= 568 || UIScreen.main.bounds.size.width <= 320)){
+            let smallVC = (self.storyboard?.instantiateViewController(withIdentifier: "SmallVC"))!
+            self.navigationController?.pushViewController(smallVC, animated: true)
         }
     }
 
@@ -136,7 +142,7 @@ class ViewController: UIViewController {
         
         cnt += 1
         
-        if(cnt%2 != 0){
+        if(cnt % 2 != 0){
             PhotoView.backgroundColor = .white
             logoLabel.textColor = .black
             view.backgroundColor = .gray
