@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,7 +62,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="R5V-uD-pOx">
-                                <rect key="frame" x="95" y="146" width="200" height="548"/>
+                                <rect key="frame" x="95" y="152.33333333333331" width="200" height="541.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07o-Tj-tvN">
                                         <rect key="frame" x="75" y="0.0" width="50" height="6"/>
@@ -81,7 +81,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhI-Tp-NjU">
-                                        <rect key="frame" x="10" y="138" width="180" height="120"/>
+                                        <rect key="frame" x="10" y="137.99999999999997" width="180" height="120.00000000000003"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-b3-z3i">
@@ -92,9 +92,12 @@
                                         <rect key="frame" x="10" y="390" width="180" height="120"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="우리끼리  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydl-3I-1rh">
-                                        <rect key="frame" x="0.0" y="516" width="200" height="32"/>
-                                        <fontDescription key="fontDescription" name="EF_Diary" family="EF_다이어리" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="우리끼리" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydl-3I-1rh">
+                                        <rect key="frame" x="10" y="516" width="180" height="25.666666666666629"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25.670000000000002" id="CqT-Vv-0b0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="EF_Diary" family="EF_다이어리" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -103,14 +106,13 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="5An-Jf-foH"/>
                                     <constraint firstItem="vhI-Tp-NjU" firstAttribute="height" secondItem="q3X-aT-KV9" secondAttribute="height" id="8jZ-Ds-kEK"/>
-                                    <constraint firstItem="Ydl-3I-1rh" firstAttribute="leading" secondItem="R5V-uD-pOx" secondAttribute="leading" id="DBC-3T-2Cp"/>
+                                    <constraint firstItem="Ydl-3I-1rh" firstAttribute="leading" secondItem="R5V-uD-pOx" secondAttribute="leading" constant="10" id="DBC-3T-2Cp"/>
                                     <constraint firstItem="vhI-Tp-NjU" firstAttribute="leading" secondItem="R5V-uD-pOx" secondAttribute="leading" constant="10" id="DU3-iw-aox"/>
                                     <constraint firstItem="q3X-aT-KV9" firstAttribute="leading" secondItem="R5V-uD-pOx" secondAttribute="leading" constant="10" id="Jo9-0S-QaM"/>
                                     <constraint firstAttribute="trailing" secondItem="vhI-Tp-NjU" secondAttribute="trailing" constant="10" id="Knw-o1-jfm"/>
                                     <constraint firstItem="baI-23-fm4" firstAttribute="height" secondItem="q3X-aT-KV9" secondAttribute="height" id="Zj0-af-pG4"/>
                                     <constraint firstAttribute="trailing" secondItem="jZj-b3-z3i" secondAttribute="trailing" constant="10" id="eoL-co-CAJ"/>
                                     <constraint firstItem="jZj-b3-z3i" firstAttribute="leading" secondItem="R5V-uD-pOx" secondAttribute="leading" constant="10" id="gr2-9n-I7Y"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ydl-3I-1rh" secondAttribute="trailing" id="hF4-nO-K9E"/>
                                     <constraint firstItem="baI-23-fm4" firstAttribute="leading" secondItem="R5V-uD-pOx" secondAttribute="leading" constant="10" id="qVy-gf-fUt"/>
                                     <constraint firstAttribute="trailing" secondItem="baI-23-fm4" secondAttribute="trailing" constant="10" id="wtE-qn-qM2"/>
                                     <constraint firstAttribute="trailing" secondItem="q3X-aT-KV9" secondAttribute="trailing" constant="10" id="xpc-O6-Vc3"/>

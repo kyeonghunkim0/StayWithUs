@@ -10,6 +10,8 @@ import BSImagePicker
 import Photos
 import Toast_Swift
 import AVFoundation
+import GoogleMobileAds
+import SnapKit
 
 class ViewController: UIViewController {
     
@@ -17,15 +19,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var logoLabel: UILabel!
     @IBOutlet var imgViews: [UIImageView]!
-//    @IBOutlet weak var PhotoView: UIView!
     @IBOutlet weak var PhotoView: UIStackView!
     @IBOutlet weak var downloadBtn: UIButton!
     @IBOutlet weak var darkBtn: UIButton!
+    
+    var bannerView: GADBannerView!
     
     var cnt = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 배너 출력
+        setupBannerView()
         // 라벨 출력
         if logoLabel.adjustsFontSizeToFitWidth == false{
             logoLabel.adjustsFontSizeToFitWidth = true
@@ -36,40 +41,29 @@ class ViewController: UIViewController {
             self.navigationController?.pushViewController(smallVC, animated: true)
         }
     }
-
-    
     //MARK: 사진 추가
     @IBAction func addPhoto(_ sender: UIButton) {
         
-   
-     
+
         let imagePicker = ImagePickerController()
         imagePicker.settings.selection.max = 4
         imagePicker.settings.theme.selectionStyle = .numbered
         imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
         imagePicker.settings.selection.unselectOnReachingMax = true
         
-       
-     
-        
-        
-        self.presentImagePicker(imagePicker, select: {(asset) in print("Selected \(asset)")
-        }, deselect: {(asset) in print("Deselected \(asset)")
-        },cancel: {(asset) in print("Cancled with selections: \(asset)")
-        }, finish: {(asset) in print("Finished with selections : \(asset)")
+        self.presentImagePicker(imagePicker, 
+                                select: {(asset) in print("Selected \(asset)")},
+                                deselect: {(asset) in print("Deselected \(asset)")},
+                                cancel: {(asset) in print("Cancled with selections: \(asset)")},
+                                finish: {(asset) in print("Finished with selections : \(asset)")
+            
             for i in 0..<4{
-                
                 if asset.count < 4{
                     self.view.makeToast("사진 4장을 선택해주세요.")
                     return
                 }
-                
                 self.imgViews[i].image = self.AssetsToImage(assets: asset[i])
-                
-
             }
-           
-        
         })
     }
 
@@ -88,8 +82,6 @@ class ViewController: UIViewController {
     
     
     @IBAction func downloadBtn(_ sender: UIButton) {
-        
-
         downloadPhoto(view: PhotoView!)
         self.view.makeToast("저장 완료!")
     }
@@ -107,7 +99,7 @@ class ViewController: UIViewController {
     
     @IBAction func shareBtn(_ sender: UIButton) {
         
-        if let URL = URL(string: "instagram-stories://share"){
+        if let URL = URL(string: "https://www.instagram.com/create/story"){
             if UIApplication.shared.canOpenURL(URL){
                 
                 let render = UIGraphicsImageRenderer(size: PhotoView.bounds.size)
@@ -139,26 +131,68 @@ class ViewController: UIViewController {
     
     
     @IBAction func darkBtn(_ sender: UIButton) {
-        
         cnt += 1
         
+        // 흰색배경
         if(cnt % 2 != 0){
-            PhotoView.backgroundColor = .white
-            logoLabel.textColor = .black
-            view.backgroundColor = .gray
+            PhotoView.backgroundColor = .systemBackground
+            logoLabel.textColor = .label
+            view.backgroundColor = .systemGray
+            
+            for i in imgViews{
+                i.layer.borderWidth = 1.0
+                i.layer.borderColor = UIColor.label.cgColor
+            }
         
         }
+        // 검은배경
         else{
-            PhotoView.backgroundColor = .black
-            logoLabel.textColor = .white
-            view.backgroundColor = .white
+            PhotoView.backgroundColor = .label
+            logoLabel.textColor = .systemBackground
+            view.backgroundColor = .systemBackground
         }
-        
-  
     }
 }
         
+extension ViewController: GADBannerViewDelegate{
+    func setupBannerView() {
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        bannerView.adUnitID = "ca-app-pub-8472581583871808/3157882850"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.load(GADRequest())
         
+        view.addSubview(bannerView)
+        bannerView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+    }
+    // MARK: - Delegate
+    public func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1) {
+            bannerView.alpha = 1
+        }
+    }
+    
+    public func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        print("Banner error : \(error.localizedDescription)")
+    }
+    
+    public func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+    }
+    
+    public func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+    }
+    
+    public func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+    }
+    
+    public func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+    }
+}
+
  
     
     
