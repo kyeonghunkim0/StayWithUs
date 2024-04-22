@@ -8,5 +8,6 @@ target 'StayWithUs' do
   # Pods for StayWithUs
   pod "BSImagePicker", "~> 3.1"
   pod 'Toast-Swift', '~> 5.0.1'
-
+  pod 'Google-Mobile-Ads-SDK'
+  pod 'SnapKit', '~> 5.6.0'
 end

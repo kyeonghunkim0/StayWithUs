@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,28 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-//        var storyboard = UIStoryboard()
-//        var initialVC = UIViewController()
-//        var MainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        var SmallStoryboard = UIStoryboard(name: "SmallSize", bundle: nil)
-//        
-//        
-//        if(UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone){
-//            storyboard = SmallStoryboard
-//        }
-//        else{
-//            storyboard = MainStoryboard
-//        }
-//        
-//        initialVC = storyboard.instantiateInitialViewController()!
-//        
-//        self.window = UIWindow.init(frame: UIScreen.main.bounds)
-//        
-//        self.window?.rootViewController = initialVC
-//        self.window?.makeKeyAndVisible()
-//
+        GADMobileAds.sharedInstance().start(completionHandler: nil) // adMob 추가
         return true
     }
 

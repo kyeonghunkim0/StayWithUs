@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-8472581583871808~2739452283</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
-	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>네컷사진을 사진첩에 저장하기 위해 권한을 허용해주세요.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>네컷사진에 사진을 넣기위해 권한을 허용해주세요.</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>instagram-stories</string>
