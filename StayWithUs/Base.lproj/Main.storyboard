@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,48 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="wzE-nt-ev9">
-                                <rect key="frame" x="30" y="734" width="330" height="46"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5a-CG-aY8">
-                                        <rect key="frame" x="0.0" y="0.0" width="27" height="46"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="add.png"/>
-                                        <connections>
-                                            <action selector="addPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NS8-Zn-WYG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFp-fd-xjR">
-                                        <rect key="frame" x="72" y="0.0" width="56" height="46"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="dark-mode"/>
-                                        <connections>
-                                            <action selector="darkBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cMs-qd-vbA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvO-Pt-6Hd">
-                                        <rect key="frame" x="173" y="0.0" width="56" height="46"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="instagram.png"/>
-                                        <connections>
-                                            <action selector="shareBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Z8-0l-PNx"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="753" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSP-JX-1Al">
-                                        <rect key="frame" x="274" y="0.0" width="56" height="46"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="download.png"/>
-                                        <connections>
-                                            <action selector="downloadBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FSQ-4o-DPd"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="R5V-uD-pOx">
-                                <rect key="frame" x="95" y="152.33333333333331" width="200" height="541.66666666666674"/>
+                                <rect key="frame" x="95" y="151" width="200" height="542"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07o-Tj-tvN">
                                         <rect key="frame" x="75" y="0.0" width="50" height="6"/>
@@ -81,7 +42,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhI-Tp-NjU">
-                                        <rect key="frame" x="10" y="137.99999999999997" width="180" height="120.00000000000003"/>
+                                        <rect key="frame" x="10" y="138" width="180" height="120"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-b3-z3i">
@@ -93,7 +54,7 @@
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="우리끼리" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydl-3I-1rh">
-                                        <rect key="frame" x="10" y="516" width="180" height="25.666666666666629"/>
+                                        <rect key="frame" x="10" y="516" width="180" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25.670000000000002" id="CqT-Vv-0b0"/>
                                         </constraints>
@@ -123,21 +84,55 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wzE-nt-ev9" secondAttribute="trailing" constant="30" id="IUF-5S-BnD"/>
-                            <constraint firstItem="wzE-nt-ev9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="bFH-6g-wVg"/>
-                            <constraint firstItem="R5V-uD-pOx" firstAttribute="centerX" secondItem="wzE-nt-ev9" secondAttribute="centerX" id="fIm-c7-DGc"/>
-                            <constraint firstItem="wzE-nt-ev9" firstAttribute="top" secondItem="R5V-uD-pOx" secondAttribute="bottom" constant="40" id="fUZ-A8-mrt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wzE-nt-ev9" secondAttribute="bottom" constant="30" id="flG-xq-AH8"/>
+                            <constraint firstItem="R5V-uD-pOx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KJf-PP-lep"/>
+                            <constraint firstItem="R5V-uD-pOx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XBP-Qv-Xgy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Rpe-tC-IdH"/>
+                    <navigationItem key="navigationItem" id="Rpe-tC-IdH">
+                        <leftBarButtonItems>
+                            <barButtonItem style="plain" id="jPw-NZ-qXG">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="DFp-fd-xjR">
+                                    <rect key="frame" x="15.999999999999993" y="0.0" width="56.000000000000007" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="circle.lefthalf.filled" catalog="system"/>
+                                    <connections>
+                                        <action selector="didTapChangeBackgroundButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cMs-qd-vbA"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="Item" style="plain" id="oOT-6t-WXR">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="753" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="WSP-JX-1Al">
+                                    <rect key="frame" x="80" y="5" width="48.333333333333343" height="34.333333333333336"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system"/>
+                                    <connections>
+                                        <action selector="didTapDownloadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FSQ-4o-DPd"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="UgM-uT-HE2">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="tup-zJ-2a6">
+                                <rect key="frame" x="288" y="5" width="86" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapInformationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q9x-cg-bFb"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="PhotoView" destination="R5V-uD-pOx" id="EZv-Jw-vMY"/>
-                        <outlet property="addButton" destination="g5a-CG-aY8" id="sUy-CK-TcX"/>
                         <outlet property="darkBtn" destination="DFp-fd-xjR" id="9cU-PA-hUe"/>
                         <outlet property="downloadBtn" destination="WSP-JX-1Al" id="3kJ-dJ-0wu"/>
                         <outlet property="logoLabel" destination="Ydl-3I-1rh" id="Zng-3e-YaS"/>
-                        <outlet property="shareButton" destination="MvO-Pt-6Hd" id="LRo-v4-YhH"/>
+                        <outlet property="photoView" destination="R5V-uD-pOx" id="EZv-Jw-vMY"/>
                         <outletCollection property="imgViews" destination="q3X-aT-KV9" collectionClass="NSMutableArray" id="wZB-uz-v8l"/>
                         <outletCollection property="imgViews" destination="jZj-b3-z3i" collectionClass="NSMutableArray" id="GHl-YS-3W9"/>
                         <outletCollection property="imgViews" destination="vhI-Tp-NjU" collectionClass="NSMutableArray" id="5cM-m2-vXo"/>
@@ -168,9 +163,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add.png" width="32" height="32"/>
-        <image name="dark-mode" width="32" height="32"/>
-        <image name="download.png" width="32" height="32"/>
-        <image name="instagram.png" width="32" height="32"/>
+        <image name="circle.lefthalf.filled" catalog="system" width="128" height="123"/>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
+        <image name="square.and.arrow.down" catalog="system" width="112" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

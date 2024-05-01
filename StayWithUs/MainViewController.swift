@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var logoLabel: UILabel!
     @IBOutlet var imgViews: [UIImageView]!
-    @IBOutlet weak var PhotoView: UIStackView!
+    @IBOutlet weak var photoView: UIStackView!
     @IBOutlet weak var downloadBtn: UIButton!
     @IBOutlet weak var darkBtn: UIButton!
     
@@ -28,73 +28,85 @@ class MainViewController: UIViewController {
     private var bannerView: GADBannerView!
     private var imageArray: [UIImage] = []
     private var cnt: Int = 0
+    private var isTapped: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        view.tintColor = .label
         setupBannerView() // 배너 출력
         // 라벨 출력
         if logoLabel.adjustsFontSizeToFitWidth == false{
             logoLabel.adjustsFontSizeToFitWidth = true
         }
+        addTapGesture()
+    }
+    // Gesture 추가
+    private func addTapGesture(){
+        imgViews.forEach{
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView))
+            $0.isUserInteractionEnabled = true
+            $0.addGestureRecognizer(tapGestureRecognizer)
+        }
+    }
+    // ImageView Tap
+    @objc func didTapImageView(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        self.selectedImageView  = tapGestureRecognizer.view as? UIImageView
+        let imagePicker = ImagePickerController()
+        imagePicker.settings.selection.max = 1
+        imagePicker.settings.theme.selectionStyle = .numbered
+        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
+        imagePicker.settings.selection.unselectOnReachingMax = true
         
-        addGesture()
+        self.presentImagePicker(imagePicker,
+                                select: {(asset) in},
+                                deselect: {(asset) in},
+                                cancel: {asset in},
+                                finish: { [weak self] asset in
+            guard let self = self else {return}
+            if let image = self.convertPHAssetToUIImage(assets: asset.first!){
+                DispatchQueue.main.async {
+                    let cropViewController = Mantis.cropViewController(image: image)
+                    cropViewController.delegate = self
+                    self.present(cropViewController, animated: true)
+                }
+            }
+        })
     }
     
-    private func setupViews(){
-        
-    }
-    
-    
-    //MARK: 사진 추가
-    @IBAction func addPhoto(_ sender: UIButton) {
-//        let imagePicker = ImagePickerController()
-//        imagePicker.settings.selection.max = 4
-//        imagePicker.settings.theme.selectionStyle = .numbered
-//        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
-//        imagePicker.settings.selection.unselectOnReachingMax = true
-//        
-//        self.presentImagePicker(imagePicker, 
-//                                select: {(asset) in print("Selected \(asset)")},
-//                                deselect: {(asset) in print("Deselected \(asset)")},
-//                                cancel: {(asset) in print("Cancled with selections: \(asset)")},
-//                                finish: {(asset) in print("Finished with selections : \(asset)")
-//            
-//            for i in 0..<4{
-//                if asset.count < 4{
-//                    self.view.makeToast("사진 4장을 선택해주세요.")
-//                    return
-//                }
-//                self.imgViews[i].image = self.AssetsToImage(assets: asset[i])
-//                self.imageArray.append(self.AssetsToImage(assets: asset[i]) ?? UIImage())
-//            }
-//        })
-    }
-    
-    @IBAction func downloadBtn(_ sender: UIButton) {
-        downloadPhoto(view: PhotoView!)
+    @IBAction func didTapDownloadButton(_ sender: UIButton) {
+        downloadPhoto(view: photoView!)
         self.view.makeToast("저장 완료!")
     }
     
-    @discardableResult
-    func downloadPhoto(view: UIView) -> UIImage?{
-        UIGraphicsBeginImageContextWithOptions(PhotoView.bounds.size, false, 0.0)
+    private func downloadPhoto(view: UIView){
+        UIGraphicsBeginImageContextWithOptions(photoView.bounds.size, false, 0.0)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-        
-        return image!
     }
     
-    @IBAction func shareBtn(_ sender: UIButton) {
+    @IBAction func didTapInformationButton(_ sender: UIButton) {
+        let message: String = """
+        - 사진 영역을 선택하여 사진을 추가하고, 사진을 편집할 수 있어요.
+        - 왼쪽 상단 버튼으로 배경색을 변경하고 사진을 저장할 수 있어요.
+        """
+        let alertViewController = UIAlertController(title: "정보", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alertViewController.addAction(okAction)
+        self.present(alertViewController, animated: true)
+    }
+    
+    @IBAction func didTapShareButton(_ sender: UIButton) {
         
         if let URL = URL(string: "https://www.instagram.com/create/story"){
             if UIApplication.shared.canOpenURL(URL){
                 
-                let render = UIGraphicsImageRenderer(size: PhotoView.bounds.size)
+                let render = UIGraphicsImageRenderer(size: photoView.bounds.size)
                 
-                let renderImg = render.image{ _ in PhotoView.drawHierarchy(in: PhotoView.bounds, afterScreenUpdates: true)}
+                let renderImg = render.image{ _ in photoView.drawHierarchy(in: photoView.bounds, afterScreenUpdates: true)}
                 
                 guard let imgData = renderImg.pngData() else {return}
                 
@@ -118,14 +130,11 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
-    
-    @IBAction func darkBtn(_ sender: UIButton) {
-        cnt += 1
-        
+
+    @IBAction func didTapChangeBackgroundButton(_ sender: UIButton) {
         // 흰색배경
-        if(cnt % 2 != 0){
-            PhotoView.backgroundColor = .systemBackground
+        if(self.isTapped){
+            photoView.backgroundColor = .systemBackground
             logoLabel.textColor = .label
             view.backgroundColor = .systemGray
             
@@ -133,60 +142,17 @@ class MainViewController: UIViewController {
                 i.layer.borderWidth = 1.0
                 i.layer.borderColor = UIColor.label.cgColor
             }
-        
+            self.isTapped = false
         }
         // 검은배경
         else{
-            PhotoView.backgroundColor = .label
+            photoView.backgroundColor = .label
             logoLabel.textColor = .systemBackground
             view.backgroundColor = .systemBackground
+            
+            self.isTapped = true
         }
     }
-    
-    private func addGesture(){
-        imgViews.forEach{
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView))
-            $0.isUserInteractionEnabled = true
-            $0.addGestureRecognizer(tapGestureRecognizer)
-        }
-    }
-    
-    @objc func didTapImageView(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        self.selectedImageView  = tapGestureRecognizer.view as? UIImageView
-        let imagePicker = ImagePickerController()
-        imagePicker.settings.selection.max = 1
-        imagePicker.settings.theme.selectionStyle = .numbered
-        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
-        imagePicker.settings.selection.unselectOnReachingMax = true
-        
-        self.presentImagePicker(imagePicker,
-                                select: {(asset) in},
-                                deselect: {(asset) in},
-                                cancel: {asset in},
-                                finish: { [weak self] asset in
-            guard let self = self else {return}
-            if let image = self.assetsToImage(assets: asset.first!){
-                DispatchQueue.main.async {
-                    let cropViewController = Mantis.cropViewController(image: image)
-                    cropViewController.delegate = self
-                    self.present(cropViewController, animated: true)
-                }
-            }
-        })
-    }
-    
-    //MARK: - PHAsset-> UIImage
-    func assetsToImage(assets: PHAsset) -> UIImage? {
-        let manger = PHImageManager.default()
-        let option = PHImageRequestOptions()
-        var image = UIImage()
-        option.isSynchronous = true
-        manger.requestImage(for: assets, targetSize: CGSize(width: assets.pixelWidth, height: assets.pixelHeight), contentMode: .aspectFill, options: option, resultHandler: {(result, info) -> Void in image = result!
-        })
-        return image
-    }
-    
 }
 //MARK: - Google Admob
 extension MainViewController: GADBannerViewDelegate{
@@ -227,6 +193,19 @@ extension MainViewController: GADBannerViewDelegate{
     public func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
     }
 }
+//MARK: - Photo
+extension MainViewController{
+    // PHAsset -> UIImage
+    func convertPHAssetToUIImage(assets: PHAsset) -> UIImage? {
+        let manger = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var image = UIImage()
+        option.isSynchronous = true
+        manger.requestImage(for: assets, targetSize: CGSize(width: assets.pixelWidth, height: assets.pixelHeight), contentMode: .aspectFill, options: option, resultHandler: {(result, info) -> Void in image = result!
+        })
+        return image
+    }
+}
 //MARK: - Crop
 extension MainViewController: CropViewControllerDelegate{
     // Crop Done
@@ -242,10 +221,3 @@ extension MainViewController: CropViewControllerDelegate{
         }
     }
 }
-    
-    
-
-
-
-
-
