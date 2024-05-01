@@ -94,6 +94,7 @@ class MainViewController: UIViewController {
         - 왼쪽 상단 버튼으로 배경색을 변경하고 사진을 저장할 수 있어요.
         """
         let alertViewController = UIAlertController(title: "정보", message: message, preferredStyle: .alert)
+        alertViewController.view.tintColor = .label
         let okAction = UIAlertAction(title: "확인", style: .default)
         alertViewController.addAction(okAction)
         self.present(alertViewController, animated: true)
