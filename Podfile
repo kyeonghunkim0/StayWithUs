@@ -10,4 +10,5 @@ target 'StayWithUs' do
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'Google-Mobile-Ads-SDK'
   pod 'SnapKit', '~> 5.6.0'
+  pod 'Mantis', '~> 2.21.0'
 end

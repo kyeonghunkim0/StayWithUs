@@ -41,6 +41,7 @@ PODS:
   - "GoogleUtilities/NSData+zlib (7.12.0)"
   - GoogleUtilities/Reachability (7.12.0):
     - GoogleUtilities/Logger
+  - Mantis (2.21.0)
   - nanopb (2.30909.1):
     - nanopb/decode (= 2.30909.1)
     - nanopb/encode (= 2.30909.1)
@@ -53,6 +54,7 @@ PODS:
 DEPENDENCIES:
   - BSImagePicker (~> 3.1)
   - Google-Mobile-Ads-SDK
+  - Mantis (~> 2.21.0)
   - SnapKit (~> 5.6.0)
   - Toast-Swift (~> 5.0.1)
 
@@ -63,6 +65,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUserMessagingPlatform
     - GoogleUtilities
+    - Mantis
     - nanopb
     - PromisesObjC
     - SnapKit
@@ -74,11 +77,12 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 70ce9aa438cff1cfb31ea3e660bcc67734cb716e
   GoogleUserMessagingPlatform: dce302b8f1b84d6e945812ee7a15c3f65a102cbf
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
+  Mantis: e9712f7b0d07709326e6f333bf16bd5828c0a4c9
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 501352bde5cf4a4752f9ae3bed9ac0ae3a0931c3
+PODFILE CHECKSUM: 5c371ba392bdc88cb58534776052dd12e8a51d38
 
 COCOAPODS: 1.13.0

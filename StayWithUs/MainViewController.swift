@@ -12,8 +12,9 @@ import Toast_Swift
 import AVFoundation
 import GoogleMobileAds
 import SnapKit
+import Mantis
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
@@ -23,63 +24,52 @@ class ViewController: UIViewController {
     @IBOutlet weak var downloadBtn: UIButton!
     @IBOutlet weak var darkBtn: UIButton!
     
-    var bannerView: GADBannerView!
-    
-    var cnt = 0
+    private var selectedImageView: UIImageView?
+    private var bannerView: GADBannerView!
+    private var imageArray: [UIImage] = []
+    private var cnt: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 배너 출력
-        setupBannerView()
+        setupViews()
+        setupBannerView() // 배너 출력
         // 라벨 출력
         if logoLabel.adjustsFontSizeToFitWidth == false{
             logoLabel.adjustsFontSizeToFitWidth = true
         }
         
-        if(UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone && (UIScreen.main.bounds.size.height <= 568 || UIScreen.main.bounds.size.width <= 320)){
-            let smallVC = (self.storyboard?.instantiateViewController(withIdentifier: "SmallVC"))!
-            self.navigationController?.pushViewController(smallVC, animated: true)
-        }
+        addGesture()
     }
+    
+    private func setupViews(){
+        
+    }
+    
+    
     //MARK: 사진 추가
     @IBAction func addPhoto(_ sender: UIButton) {
-        
-
-        let imagePicker = ImagePickerController()
-        imagePicker.settings.selection.max = 4
-        imagePicker.settings.theme.selectionStyle = .numbered
-        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
-        imagePicker.settings.selection.unselectOnReachingMax = true
-        
-        self.presentImagePicker(imagePicker, 
-                                select: {(asset) in print("Selected \(asset)")},
-                                deselect: {(asset) in print("Deselected \(asset)")},
-                                cancel: {(asset) in print("Cancled with selections: \(asset)")},
-                                finish: {(asset) in print("Finished with selections : \(asset)")
-            
-            for i in 0..<4{
-                if asset.count < 4{
-                    self.view.makeToast("사진 4장을 선택해주세요.")
-                    return
-                }
-                self.imgViews[i].image = self.AssetsToImage(assets: asset[i])
-            }
-        })
+//        let imagePicker = ImagePickerController()
+//        imagePicker.settings.selection.max = 4
+//        imagePicker.settings.theme.selectionStyle = .numbered
+//        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
+//        imagePicker.settings.selection.unselectOnReachingMax = true
+//        
+//        self.presentImagePicker(imagePicker, 
+//                                select: {(asset) in print("Selected \(asset)")},
+//                                deselect: {(asset) in print("Deselected \(asset)")},
+//                                cancel: {(asset) in print("Cancled with selections: \(asset)")},
+//                                finish: {(asset) in print("Finished with selections : \(asset)")
+//            
+//            for i in 0..<4{
+//                if asset.count < 4{
+//                    self.view.makeToast("사진 4장을 선택해주세요.")
+//                    return
+//                }
+//                self.imgViews[i].image = self.AssetsToImage(assets: asset[i])
+//                self.imageArray.append(self.AssetsToImage(assets: asset[i]) ?? UIImage())
+//            }
+//        })
     }
-
-
-    //MARK: PHAsset-> UIImage
-    func AssetsToImage(assets: PHAsset) -> UIImage? {
-        let manger = PHImageManager.default()
-        let option = PHImageRequestOptions()
-        var image = UIImage()
-        option.isSynchronous = true
-        manger.requestImage(for: assets, targetSize: CGSize(width: assets.pixelWidth, height: assets.pixelHeight), contentMode: .aspectFill, options: option, resultHandler: {(result, info) -> Void in image = result!
-        })
-        return image
-    }
-    
-    
     
     @IBAction func downloadBtn(_ sender: UIButton) {
         downloadPhoto(view: PhotoView!)
@@ -152,9 +142,54 @@ class ViewController: UIViewController {
             view.backgroundColor = .systemBackground
         }
     }
-}
+    
+    private func addGesture(){
+        imgViews.forEach{
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView))
+            $0.isUserInteractionEnabled = true
+            $0.addGestureRecognizer(tapGestureRecognizer)
+        }
+    }
+    
+    @objc func didTapImageView(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        self.selectedImageView  = tapGestureRecognizer.view as? UIImageView
+        let imagePicker = ImagePickerController()
+        imagePicker.settings.selection.max = 1
+        imagePicker.settings.theme.selectionStyle = .numbered
+        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
+        imagePicker.settings.selection.unselectOnReachingMax = true
         
-extension ViewController: GADBannerViewDelegate{
+        self.presentImagePicker(imagePicker,
+                                select: {(asset) in},
+                                deselect: {(asset) in},
+                                cancel: {asset in},
+                                finish: { [weak self] asset in
+            guard let self = self else {return}
+            if let image = self.assetsToImage(assets: asset.first!){
+                DispatchQueue.main.async {
+                    let cropViewController = Mantis.cropViewController(image: image)
+                    cropViewController.delegate = self
+                    self.present(cropViewController, animated: true)
+                }
+            }
+        })
+    }
+    
+    //MARK: - PHAsset-> UIImage
+    func assetsToImage(assets: PHAsset) -> UIImage? {
+        let manger = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var image = UIImage()
+        option.isSynchronous = true
+        manger.requestImage(for: assets, targetSize: CGSize(width: assets.pixelWidth, height: assets.pixelHeight), contentMode: .aspectFill, options: option, resultHandler: {(result, info) -> Void in image = result!
+        })
+        return image
+    }
+    
+}
+//MARK: - Google Admob
+extension MainViewController: GADBannerViewDelegate{
     func setupBannerView() {
         bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         bannerView.adUnitID = "ca-app-pub-8472581583871808/3157882850"
@@ -180,20 +215,33 @@ extension ViewController: GADBannerViewDelegate{
         print("Banner error : \(error.localizedDescription)")
     }
     
-    public func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+    public func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
     }
     
-    public func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+    public func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
     }
     
-    public func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+    public func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
     }
     
     public func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
     }
 }
-
- 
+//MARK: - Crop
+extension MainViewController: CropViewControllerDelegate{
+    // Crop Done
+    func cropViewControllerDidCrop(_ cropViewController: Mantis.CropViewController, cropped: UIImage, transformation: Mantis.Transformation, cropInfo: Mantis.CropInfo) {
+        self.dismiss(animated: true){
+            self.selectedImageView?.image = cropped
+        }
+    }
+    // Crop Cancel
+    func cropViewControllerDidCancel(_ cropViewController: Mantis.CropViewController, original: UIImage) {
+        self.dismiss(animated: true){
+            self.selectedImageView?.image = original
+        }
+    }
+}
     
     
 
